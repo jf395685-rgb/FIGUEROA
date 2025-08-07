@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d10068;
+      font-size: 2.5em;
+      margin-top: 100px;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      position: relative;
+      height: 200px;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background-color: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background-color: #ddd;
+      color: black;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 2em;
+      color: #e6005c;
+      display: none;
+    }
+
+    /* Corazones animados */
+    .heart {
+      position: fixed;
+      top: -50px;
+      color: #ff4d88;
+      font-size: 30px;
+      animation: fall linear;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .heart-container {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Quieres ser mi novia?</h1>
+
+  <div class="buttons">
+    <button id="yes">Sí ❤️</button>
+    <button id="no">No 😢</button>
+  </div>
+
+  <div id="message">¡Yo sabía que querías! Te amo ❤️</div>
+
+  <div class="heart-container"></div>
+
+  <script>
+    const btnNo = document.getElementById("no");
+    const btnYes = document.getElementById("yes");
+    const message = document.getElementById("message");
+
+    // Limitar movimiento del botón "No"
+    const marginX = 150;
+    const marginY = 150;
+
+    btnNo.addEventListener("mouseover", () => {
+      const maxX = window.innerWidth - btnNo.offsetWidth - marginX;
+      const maxY = window.innerHeight - btnNo.offsetHeight - marginY;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      btnNo.style.left = `${x}px`;
+      btnNo.style.top = `${y}px`;
+    });
+
+    btnYes.addEventListener("click", () => {
+      document.querySelector(".buttons").style.display = "none";
+      message.style.display = "block";
+    });
+
+    // 🎈 Corazones animados
+    const container = document.querySelector('.heart-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Generar corazones cada 300 ms
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
+
