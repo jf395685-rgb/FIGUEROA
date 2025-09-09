@@ -1,149 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>¿Quieres ser mi novia?</title>
-  <style>
-    body {
-      margin: 0;
-      background: linear-gradient(to bottom right, #ffccdd, #ffe6f0);
-      font-family: 'Comic Sans MS', cursive;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    h1 {
-      color: #d6336c;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 2px #00000033;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 20px;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    #yesBtn {
-      background-color: #ff69b4;
-      color: white;
-    }
-
-    #noBtn {
-      background-color: #ff9999;
-      color: white;
-      position: absolute;
-    }
-
-    #message {
-      font-size: 2rem;
-      color: #d6336c;
-      display: none;
-      margin-top: 20px;
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: fall 5s linear infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes fall {
-      0% {
-        top: -10%;
-        opacity: 1;
-      }
-      100% {
-        top: 110%;
-        opacity: 0;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIENDA NIKE - JOSÉ FIGUEROA</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
-  <h1>¿Quieres ser mi novia? 💖</h1>
+  <!-- HEADER -->
+  <header>
+    <h1>TIENDA DE ZAPATOS NIKE</h1>
+    <p class="autor">SITIO CREADO POR JOSÉ FIGUEROA</p>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('INICIO')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('PRODUCTOS')">Productos</a></li>
+        <li><a href="#" onclick="mostrarSeccion('AUDITORIA')">Auditoría</a></li>
+        <li><a href="#" onclick="mostrarSeccion('ACERCA')">Acerca de</a></li>
+        <li><a href="#" onclick="mostrarSeccion('CONTACTO')">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="buttons">
-    <button id="yesBtn" onclick="sayYes()">Sí 💘</button>
-    <button id="noBtn" onmouseover="moveNo()">No 💔</button>
-  </div>
 
-  <div id="message">¡Yo sabía que querías! Te amo ❤️</div>
+  <!-- SECCIONES -->
+  <!-- INICIO -->
+  <section id="INICIO" class="pagina hero" style="display:block;">
+    <div class="hero-content">
+      <h2>BIENVENIDO A LA TIENDA OFICIAL NIKE</h2>
+      <p>Descubre los últimos lanzamientos y la tecnología que te acompaña en cada paso.</p>
 
-  <audio id="romanticMusic" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-  </audio>
 
+      <!-- VIDEO AGREGADO -->
+      <div class="video-container">
+        <video autoplay muted loop playsinline>
+          <source src="video/nikepromo.mp4 " type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      </div>
+
+
+      <div class="caracteristicas">
+        <div class="caracteristica">
+          <img src="img/fondo1.png" alt="Comodidad">
+          <h3>COMODIDAD</h3>
+          <p>Zapatos diseñados para tu confort diario.</p>
+        </div>
+        <div class="caracteristica">
+          <img src="img/fondo2.png" alt="Estilo">
+          <h3>ESTILO</h3>
+          <p>Diseños modernos que resaltan tu personalidad.</p>
+        </div>
+        <div class="caracteristica">
+          <img src="img/fondo3.png" alt="Rendimiento">
+          <h3>RENDIMIENTO</h3>
+          <p>Calzado con tecnología que mejora tu desempeño.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRODUCTOS -->
+  <section id="PRODUCTOS" class="pagina" style="display:none;">
+    <h2>PRODUCTOS DESTACADOS</h2>
+    <p>Explora nuestra colección de zapatos Nike, pensada para todos los estilos y necesidades.</p>
+    
+
+    <button class="btn-slider btn-left" onclick="moverSlider(-1)">&#10094;</button>
+    <div class="slider-container" id="slider">
+      <div class="card">
+        <img src="img/nike1.png" alt="Nike Air">
+        <h3>NIKE AIR FORCE</h3>
+        <p>Comodidad y estilo en cada paso.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+      <div class="card">
+        <img src="img/nike2.png" alt="Nike Jordan">
+        <h3>NIKE JORDAN</h3>
+        <p>El clásico que nunca pasa de moda.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+      <div class="card">
+        <img src="img/nike3.png" alt="Nike Running">
+        <h3>NIKE RUNNING</h3>
+        <p>Velocidad y ligereza para tus entrenos.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+      <div class="card">
+        <img src="img/nike4.png" alt="Nike Zoom">
+        <h3>NIKE ZOOM</h3>
+        <p>Rendimiento para corredores profesionales.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+      <div class="card">
+        <img src="img/nike5.png" alt="Nike Revolution">
+        <h3>NIKE REVOLUTION</h3>
+        <p>Ligereza y confort en cada paso.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+      <div class="card">
+        <img src="img/nike6.png" alt="Nike Flex">
+        <h3>NIKE FLEX</h3>
+        <p>Flexibilidad y soporte para tu día a día.</p>
+        <a href="#" class="btn-comprar">Agregar al carrito</a>
+      </div>
+    </div>
+    <button class="btn-slider btn-right" onclick="moverSlider(1)">&#10095;</button>
+  </section>
+
+
+  <!-- AUDITORÍA -->
+  <section id="AUDITORIA" class="pagina auditoria" style="display:none;">
+    <h2>AUDITORIA DE SISTEMA</h2>
+    <div class="auditoria-contenido">
+      <img src="img/auditoria.png" alt="Auditoría de sistemas">
+      <div class="auditoria-texto">
+        <p>
+          La auditoría de sistemas de información permite evaluar la seguridad, eficiencia y confiabilidad
+          tecnológica de una empresa. Con ella se identifican riesgos, se optimizan procesos y se asegura
+          el cumplimiento de normas.
+        </p>
+        <h3>SERVICIOS DE AUDITORIA</h3>
+        <ul class="SERVICIOS">
+          <li>🔐 Evaluación de seguridad en redes y servidores.</li>
+          <li>💻 Revisión de software, licencias y uso de aplicaciones.</li>
+          <li>👥 Control de accesos, usuarios y privilegios.</li>
+          <li>☁️ Revisión de respaldos y planes de recuperación.</li>
+          <li>📊 Análisis de cumplimiento de normativas (ISO, GDPR, etc.).</li>
+        </ul>
+        <h3>BENEFICIOS</h3>
+        <ul class="BENEFICIOS">
+          <li>Mayor seguridad informática.</li>
+          <li>Detección temprana de vulnerabilidades.</li>
+          <li>Optimización de recursos tecnológicos.</li>
+          <li>Ahorro en costos por prevención de incidentes.</li>
+          <li>Mayor confianza para clientes y socios comerciales.</li>
+        </ul>
+        <h3>TIPOS DE AUDITORIAS</h3>
+        <ul class="tipos">
+          <li>Auditoría interna</li>
+          <li>Auditoría externa</li>
+          <li>Auditoría de seguridad</li>
+          <li>Auditoría de cumplimiento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ACERCA DE -->
+  <section id="ACERCA" class="pagina acerca" style="display:none;">
+    <h2>ACERCA DE MÍ</h2>
+    <div class="acerca-contenido">
+      <img src="img/yo.png" alt="José Figueroa" style="width:200px; border-radius:50%; margin:10px;">
+      <div class="acerca-texto">
+        <p>
+          ¡HOLA! 👋 Mi nombre es <strong>JOSÉ FIGUEROA</strong>, creador de este sitio web. 
+          Soy apasionado por la tecnología, el diseño web y el aprendizaje constante. 
+          y estudio en el Instituto Nacional de Armenia: tercer año de bachillerato en informatica.
+        </p>
+        <p>
+          Este proyecto lo he creado con el fin de practicar mis conocimientos en HTML, CSS y JavaScript, 
+          combinando creatividad y funcionalidad en una tienda de zapatos Nike.
+        </p>
+        <h3>📌 MIS INTERESES</h3>
+        <ul>
+          <li>💻 Desarrollo web y programación.</li>
+          <li>📚 Aprendizaje de nuevas tecnologías.</li>
+          <li>🎵 Música y creatividad.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACTO -->
+  <section id="CONTACTO" class="pagina" style="display:none;">
+    <h2>CONTACTO</h2>
+    <p>📧 Email: josefigueroa@example.com</p>
+    <p>📞 Teléfono: +503 7138-9385</p>
+    <p>🏢 Dirección: País, El Salvador, Departamento de Sonsonate, Distrito de Armenia </p>
+    
+    <h3>Envíanos un mensaje:</h3>
+    <form>
+      <input type="text" placeholder="Nombre" required><br><br>
+      <input type="email" placeholder="Correo electrónico" required><br><br>
+      <textarea placeholder="Mensaje" required></textarea><br><br>
+      <button type="submit">Enviar</button>
+    </form>
+
+
+    <!-- Mapa de Google -->
+    <h3>Ubicación:</h3>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5152172922253!2d-89.49728272626865!3d13.747774519008624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62da6ba47be677%3A0xc214876d24f20dbd!2sNational%20Institute%20of%20Armenia!5e0!3m2!1sen!2ssv!4v1756864615041!5m2!1sen!2ssv" 
+      width="65%" 
+      height="500" 
+      style="border:0; border-radius:10px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 JOSÉ FIGUEROA - TODOS LOS DERECHOS RESERVADOS</p>
+  </footer>
+
+  
+  <!-- JAVASCRIPT -->
   <script>
-    const noBtn = document.getElementById("noBtn");
-    const message = document.getElementById("message");
-
-    function moveNo() {
-      const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-      const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-      const randX = Math.random() * maxX;
-      const randY = Math.random() * maxY;
-      noBtn.style.left = randX + "px";
-      noBtn.style.top = randY + "px";
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('.pagina');
+      secciones.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
     }
 
-    function sayYes() {
-      message.style.display = "block";
-      document.querySelector(".buttons").style.display = "none";
-
-      const music = document.getElementById("romanticMusic");
-      music.play();
+    function moverSlider(direccion) {
+      const slider = document.getElementById('slider');
+      const scrollAmount = 300;
+      slider.scrollBy({ left: direccion * scrollAmount, behavior: 'smooth' });
     }
-
-    // Crear corazones cayendo
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }, 300);
   </script>
 </body>
 </html>
